@@ -1,0 +1,130 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+	
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HangMan Game</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<div class="row">
+
+				<div id="window" class="col-md-12">
+
+					<p>Welcome to Mai Terminal... </p>
+					<p>Detected System malfunction! Backspace is unavailable.</p>
+					<p>Type "?" for help message</p>
+					<p id="console">&gt;<span id="cursor">_<span></p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+	
+	<script type="text/javascript">
+
+	var consoleLine = document.getElementById("console");
+	var input = "";
+	var helpMsg = "~Type HangMan to start the GAME~";
+	var invalidMsg = "Invalid Input. Type '?' for help message. Please try Again.";
+	var inputString = "";
+
+	function printToWindow(inputText, message) {
+
+		//create a new p tag
+		var evalutedInputLine = document.createElement("p");
+		
+		//create text that goes into new paragraph
+		var evaluatedInputNode = document.createTextNode(">" + inputText);
+		
+		//insert such text into the prargraph tag
+		evalutedInputLine.appendChild(evaluatedInputNode);
+			
+		//insert this paragraph tag before console element
+		document.getElementById("window").insertBefore(evalutedInputLine, document.getElementById("console"));
+
+		//create output p tag
+		var outputLine = document.createElement("p");
+
+		//create text that goes into new paragraph
+		var outputLineNode = document.createTextNode(message);
+				outputLine.appendChild(outputLineNode);
+
+		//insert before the old prompt
+		document.getElementById("window").insertBefore(outputLine, document.getElementById("console"));	
+
+	}
+
+	document.onkeypress = function (e) {
+
+		//if input is "enter" then evauate, else keep on collecting input
+
+		input = e.key;
+
+		if (input !== "Enter") {
+
+			//when input not enter, append inputted text and display
+			inputString += input;
+			console.log("InputString is: " + inputString);
+			consoleLine = document.getElementById("console");
+			consoleLine.innerHTML = "&gt;" + inputString + "<span id='cursor'>_<span>";
+
+		} else {
+
+			//when enter is pressed, check if it is a valid command; valid command include ?, which prints a help message or HangMan, which starts HangMan game
+			
+			console.log("InputString when Enter pressed: " + inputString);
+
+
+			if (inputString === "?") {
+
+				printToWindow(inputString, helpMsg);
+
+				inputString = "";
+
+				consoleLine.innerHTML = "&gt;" + inputString + "<span id='cursor'>_<span>";
+
+			} else { 
+
+				if (inputString === "HangMan") {
+
+					//start HangMan
+					document.write ("<p>start HangMan</p>");
+
+
+				} else {
+
+					printToWindow(inputString, invalidMsg);
+
+					inputString = "";
+
+					consoleLine.innerHTML = "&gt;" + inputString + "<span id='cursor'>_<span>";
+
+
+				}
+
+
+
+
+			}
+
+
+		}
+
+	}
+
+	</script>
+
+</html>
