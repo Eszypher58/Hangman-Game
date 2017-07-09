@@ -4,13 +4,105 @@ body {
 
 }
 
-p {
+p, h1, h2, h3 {
 
 	color: #FFFFFF;
 	font-family: Courier; 
+
+}
+
+h1 {
+
+	font-size: 64px;
+
+}
+
+h2 {
+
 	font-size: 32px;
 
 }
+
+h3 {
+
+	font-size: 28px;
+
+}
+
+p {
+
+	font-size: 24px;
+
+}
+
+
+
+#title {
+
+	border-style: solid;
+	border-width: 3px;
+	border-color: #FFFFFF;
+	border-radius: 5px;
+
+}
+
+.section {
+
+	border-style: solid;
+	border-width: 3px;
+	border-color: #FFFFFF;
+	border-radius: 5px;
+	margin : 5px 0px;
+
+}
+
+.keypad {
+
+	border-radius: 50px;
+	background-color: #FFFFFF;
+	color: #000000;
+	//width: 70%;
+
+}
+
+#keypadSection {
+
+	width: 90%;
+	margin: 0 auto;
+}
+
+#bottomPanel {
+
+
+	border-style: solid;
+	border-width: 3px;
+	border-color: #FFFFFF;
+	border-radius: 5px;
+
+}
+
+#prompt {
+
+	background-color: #FFFFFF;
+	position: relative;
+	top: -400px;
+	text-align: center;
+
+}
+
+#prompt > h1 {
+
+	color: #000000;
+
+}
+
+#prompt > p {
+
+	color: #000000;
+
+}
+
+
 
 #cursor{
   opacity: 1;

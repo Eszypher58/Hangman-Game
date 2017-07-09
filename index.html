@@ -14,7 +14,7 @@
 
 	<body>
 
-		<div class="container">
+		<div id="mainwindow" class="container">
 
 			<div class="row">
 
@@ -33,98 +33,7 @@
 
 	</body>
 	
-	<script type="text/javascript">
-
-	var consoleLine = document.getElementById("console");
-	var input = "";
-	var helpMsg = "~Type HangMan to start the GAME~";
-	var invalidMsg = "Invalid Input. Type '?' for help message. Please try Again.";
-	var inputString = "";
-
-	function printToWindow(inputText, message) {
-
-		//create a new p tag
-		var evalutedInputLine = document.createElement("p");
-		
-		//create text that goes into new paragraph
-		var evaluatedInputNode = document.createTextNode(">" + inputText);
-		
-		//insert such text into the prargraph tag
-		evalutedInputLine.appendChild(evaluatedInputNode);
-			
-		//insert this paragraph tag before console element
-		document.getElementById("window").insertBefore(evalutedInputLine, document.getElementById("console"));
-
-		//create output p tag
-		var outputLine = document.createElement("p");
-
-		//create text that goes into new paragraph
-		var outputLineNode = document.createTextNode(message);
-				outputLine.appendChild(outputLineNode);
-
-		//insert before the old prompt
-		document.getElementById("window").insertBefore(outputLine, document.getElementById("console"));	
-
-	}
-
-	document.onkeypress = function (e) {
-
-		//if input is "enter" then evauate, else keep on collecting input
-
-		input = e.key;
-
-		if (input !== "Enter") {
-
-			//when input not enter, append inputted text and display
-			inputString += input;
-			console.log("InputString is: " + inputString);
-			consoleLine = document.getElementById("console");
-			consoleLine.innerHTML = "&gt;" + inputString + "<span id='cursor'>_<span>";
-
-		} else {
-
-			//when enter is pressed, check if it is a valid command; valid command include ?, which prints a help message or HangMan, which starts HangMan game
-			
-			console.log("InputString when Enter pressed: " + inputString);
-
-
-			if (inputString === "?") {
-
-				printToWindow(inputString, helpMsg);
-
-				inputString = "";
-
-				consoleLine.innerHTML = "&gt;" + inputString + "<span id='cursor'>_<span>";
-
-			} else { 
-
-				if (inputString === "HangMan") {
-
-					//start HangMan
-					document.write ("<p>start HangMan</p>");
-
-
-				} else {
-
-					printToWindow(inputString, invalidMsg);
-
-					inputString = "";
-
-					consoleLine.innerHTML = "&gt;" + inputString + "<span id='cursor'>_<span>";
-
-
-				}
-
-
-
-
-			}
-
-
-		}
-
-	}
-
+	<script type="text/javascript" src="assets/javascript/game.js">
 	</script>
 
 </html>
