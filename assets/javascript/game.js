@@ -4,7 +4,7 @@
 	var input = "";
 	var helpMsg = "~Type hangman to start the GAME~";
 	var invalidMsg = "Invalid Input. Type '?' for help message. Please try Again.";
-	var inputString = "";
+	var inputString = ""; //connects input into string
 	var isPlaying = false; //true when HangMan is running, false otherwise
 
 	function printToWindow(inputText, message) {
@@ -333,12 +333,12 @@
 			//create a new array of length selected word
 			theWord = new Array(selectedWord.length);
 
-			//fill it with all 0, hich represent not guessed state
+			//fill it with all 0, which represent not guessed state
 			theWord.fill(0);
 
 		}
 
-		//main logi of the game. takes key pressed as input, if it has been selected, dont do anything. otherwise, perform the neccesary logic of the game.
+		//main logic of the game. takes key pressed as input, if it has been selected, dont do anything. otherwise, perform the neccesary logic of the game.
 		this.checkInput = function(input) {
 
 			console.log("input passed to HangMan Object: " + input);
@@ -383,7 +383,7 @@
 					//change button color to red
 					changeButtonColor(input, "#FF0000");
 
-					//update hangman picture
+					//update hangman picture, has not finished this yet
 
 					//decrease number of guess left by 1, if user smash keys too quickly, guessnumberleft could go to negative. Therefore, stop it at 0.
 					if(numberGuessLeft <= 0) {
